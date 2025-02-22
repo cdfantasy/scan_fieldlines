@@ -2,6 +2,9 @@ import numpy as np
 import r8akherm3
 import r8herm3
 
+help(r8akherm3)
+help(r8herm3)
+
 def r8herm_spline(x_array: np.ndarray, y_array: np.ndarray, z_array: np.ndarray, B_raw: np.ndarray) -> np.ndarray:
     """
     使用三维 Hermite 样条插值函数对输入数据进行插值。
@@ -29,8 +32,8 @@ def r8herm_spline(x_array: np.ndarray, y_array: np.ndarray, z_array: np.ndarray,
     z = np.asfortranarray(z_array)
     fherm = np.asfortranarray(fherm)
     
-    r8akherm3.r8akherm3(x, y, z, fherm, ilinx, iliny, ilinz, ier)
-
+    # r8akherm3.r8akherm3(x, y, z, fherm, ilinx, iliny, ilinz, ier)
+    r8akherm3.r8akherm3p(x,y,z,fherm,ilinx,iliny,ilinz,1,1,1,ier,nx,ny,nz)
     return fherm
 
 def r8herm_interpolation(xget: float, yget: float, zget: float, x_array: np.ndarray, y_array: np.ndarray, z_array: np.ndarray, fherm: np.ndarray) -> float:
